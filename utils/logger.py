@@ -3,10 +3,17 @@ import logging
 from contextvars import ContextVar
 from typing import Any, Dict, Union
 
+from pydantic import BaseModel
 from pythonjsonlogger.json import JsonFormatter
 
-request_id_ctx_var: ContextVar[Union[str, None]] = ContextVar(
-    "request_id_ctx_var", default=None
+
+class RequestContextVar(BaseModel):
+    request_id: str
+    request_path: str
+
+
+request_ctx_var: ContextVar[Union[RequestContextVar, None]] = ContextVar(
+    "request_ctx_var", default=None
 )
 
 __logger: logging.Logger | None = None
@@ -24,10 +31,16 @@ class CustomJsonFormatter(JsonFormatter):
         log_record["timestamp"] = datetime.datetime.fromtimestamp(
             record.created, tz=datetime.timezone.utc
         ).isoformat()
+        log_record["request_id"] = (
+            var.request_id if (var := request_ctx_var.get()) else None
+        )
+        log_record["request_path"] = (
+            var.request_path if (var := request_ctx_var.get()) else None
+        )
         log_record["pathname"] = record.pathname
         log_record["line"] = record.lineno
         log_record["severity"] = record.levelname
-        log_record["request_id"] = request_id_ctx_var.get()
+
         super().add_fields(log_record, record, message_dict)
 
 
