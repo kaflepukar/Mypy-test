@@ -15,7 +15,7 @@ jobs:
         image: pgvector/pgvector:pg17
         
         ports:
-          - :5433:5433
+          - 5433:5433
         env:
           POSTGRES_DB: resume-builder
           POSTGRES_USER: postgres
