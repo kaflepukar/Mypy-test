@@ -16,6 +16,10 @@ jobs:
         
         ports:
           - :5433:5433
+        env:
+          POSTGRES_DB: resume-builder
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
 
     steps:
       - uses: actions/checkout@v4
