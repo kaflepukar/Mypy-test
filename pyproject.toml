@@ -1,5 +1,5 @@
 [project]
-name = "Resume-builder"
+name = "Mypy-Test"
 version = "0.1.0"
 
 readme = "README.md"
@@ -17,6 +17,7 @@ dependencies = [
     "jinja2>=3.1.6",
     "slowapi>=0.1.9",
     "httpx>=0.28.1",
+    "pydantic[email]>=2.12.0",
 ]
 
 [dependency-groups]

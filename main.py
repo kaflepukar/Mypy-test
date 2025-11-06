@@ -10,6 +10,8 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 from db import sessionmanager
+from routes.project_routes import router as project_routes
+from routes.user_routes import router as user_routes
 from schemas.common import ErrorResponseSchema
 from settings import settings
 from utils.constants import API_RATE_LIMIT
@@ -29,7 +31,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Resume-Builder",
+    title="Mypy_Test",
     lifespan=lifespan,
     responses={
         status.HTTP_429_TOO_MANY_REQUESTS: {
@@ -82,6 +84,10 @@ async def logging_middleware(
     response = await call_next(request)
     response.headers["X-Request-ID"] = request_id
     return response
+
+
+app.include_router(user_routes, prefix="/api/users", tags=["User Management"])
+app.include_router(project_routes, prefix="/api/projects", tags=["Projects"])
 
 
 @app.get("/", tags=["Health"])

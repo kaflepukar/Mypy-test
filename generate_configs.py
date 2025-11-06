@@ -18,5 +18,5 @@ def generate_gunicorn_systemd_service_file(template_path: str, output_path: str)
 
 if __name__ == "__main__":
     generate_gunicorn_systemd_service_file(
-        "resume-builder-fastapi.service.j2", "resume-builder-fastapi.service"
+        "mypy_test-fastapi.service.j2", "mypy_test-fastapi.service"
     )

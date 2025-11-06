@@ -1,17 +1,17 @@
 [Unit]
-Description=Gunicorn daemon for Resume Builder
+Description=Gunicorn daemon for Mypy Test
 After=network.target
 
 [Service]
 Type=simple
 User={{ GUNICORN_USER }}
 Group={{ GUNICORN_GROUP }}
-WorkingDirectory=/var/www/resume-builder-fastapi
-ExecStart=/var/www/resume-builder-fastapi/startup.sh
+WorkingDirectory=/var/www/mypy_Test-fastapi
+ExecStart=/var/www/mypy_Test-fastapi/startup.sh
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=mixed
 Restart=always
-Environment="PATH=/var/www/resume-builder-fastapi/.venv/bin:${PATH}"
+Environment="PATH=/var/www/mypy_Test-fastapi/.venv/bin:${PATH}"
 
 [Install]
 WantedBy=multi-user.target

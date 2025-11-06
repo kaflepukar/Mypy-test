@@ -1,4 +1,4 @@
-name: Resume-Builder CI
+name: Mypy_Test CI
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         ports:
           - 5433:5433
         env:
-          POSTGRES_DB: resume-builder
+          POSTGRES_DB: mypy_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
 

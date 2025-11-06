@@ -1,4 +1,4 @@
-name: test-resume-builder-fastapi
+name: test-mypy_test-fastapi
 services:
 
   db:
@@ -9,7 +9,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=resume-builder
+      - POSTGRES_DB=mypy_test
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
 
