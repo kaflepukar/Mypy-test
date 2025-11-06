@@ -1,4 +1,4 @@
-name: resume-builder-fastapi
+name: mypy_test-fastapi
 services:
   db:
     image: pgvector/pgvector:pg17
@@ -8,7 +8,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=resume-builder
+      - POSTGRES_DB=mypy_test
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
 

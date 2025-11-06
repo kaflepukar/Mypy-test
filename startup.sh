@@ -2,7 +2,7 @@
 
 set -e
 
-APP_DIR="/var/www/resume-builder-fastapi"
+APP_DIR="/var/www/mypy-test-fastapi"
 UV="$HOME/.local/bin/uv"
 PIDS=()
 

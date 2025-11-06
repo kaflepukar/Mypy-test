@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     DEBUG: int = 0
 
     # Database settings
-    DB_URL: str = "postgresql+asyncpg://postgres:password@localhost:5433/resume_builder"
+    DB_URL: str = "postgresql+asyncpg://postgres:password@localhost:5433/mypy_test"
     DB_POOL_SIZE: int = 10
     DB_MAX_OVERFLOW: int = 20
 
