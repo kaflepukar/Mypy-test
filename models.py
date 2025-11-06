@@ -64,11 +64,11 @@ class Project(Base):
 
     # User's original input
     description: Mapped[str] = mapped_column(Text, nullable=False)
-    highlights: Mapped[Optional[dict]] = mapped_column(JSON)  # Array of strings
+    highlights: Mapped[Optional[List[str]]] = mapped_column(JSON)  # Array of strings
 
     # AI-enhanced versions
     description_enhanced: Mapped[Optional[str]] = mapped_column(Text)
-    highlights_enhanced: Mapped[Optional[dict]] = mapped_column(
+    highlights_enhanced: Mapped[Optional[List[str]]] = mapped_column(
         JSON
     )  # Array of strings
 
@@ -82,7 +82,7 @@ class Project(Base):
     github_url: Mapped[Optional[str]] = mapped_column(String(500))
     start_date: Mapped[Optional[date]] = mapped_column(Date)
     end_date: Mapped[Optional[date]] = mapped_column(Date)
-    technologies_used: Mapped[Optional[dict]] = mapped_column(JSON)
+    technologies_used: Mapped[Optional[List[str]]] = mapped_column(JSON)
     is_featured: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     display_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
